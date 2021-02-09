@@ -13,5 +13,7 @@ namespace MvcCore.Data
             : base(options) { }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Departamento> Departamentos { get; set; }
     }
 }

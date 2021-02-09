@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Repos\\ExamenNetCoreEF_2_Nazaret\\MvcCore\\MvcCore.csproj": {}
+    "G:\\Repos\\ExamenNetCoreEF_2\\MvcCore\\MvcCore.csproj": {}
   },
   "projects": {
-    "G:\\Repos\\ExamenNetCoreEF_2_Nazaret\\MvcCore\\MvcCore.csproj": {
+    "G:\\Repos\\ExamenNetCoreEF_2\\MvcCore\\MvcCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Repos\\ExamenNetCoreEF_2_Nazaret\\MvcCore\\MvcCore.csproj",
+        "projectUniqueName": "G:\\Repos\\ExamenNetCoreEF_2\\MvcCore\\MvcCore.csproj",
         "projectName": "MvcCore",
-        "projectPath": "G:\\Repos\\ExamenNetCoreEF_2_Nazaret\\MvcCore\\MvcCore.csproj",
+        "projectPath": "G:\\Repos\\ExamenNetCoreEF_2\\MvcCore\\MvcCore.csproj",
         "packagesPath": "C:\\Users\\Naza\\.nuget\\packages\\",
-        "outputPath": "G:\\Repos\\ExamenNetCoreEF_2_Nazaret\\MvcCore\\obj\\",
+        "outputPath": "G:\\Repos\\ExamenNetCoreEF_2\\MvcCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -50,11 +50,11 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             }
           },
           "imports": [

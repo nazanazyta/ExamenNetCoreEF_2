@@ -1,0 +1,27 @@
+﻿@model List<Departamento>
+
+@{ 
+    int contador = 0;
+    List<int> cantidades = ViewData["cantidades"] as List<int>;
+}
+
+<h1>Pedidos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Departamento dept in Model)
+        {
+            <tr>
+                <td>@dept.Nombre</td>
+                <td>@cantidades[contador]</td>
+                @{contador++;}
+            </tr>
+        }
+    </tbody>
+</table>

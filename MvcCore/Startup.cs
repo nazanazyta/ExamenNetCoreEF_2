@@ -30,7 +30,7 @@ namespace MvcCore
             String cadenasql = this.configuration.GetConnectionString("casasqlhospital");
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
             });
             services.AddTransient<IRepository, RepositorySQL>();
             services.AddDbContext<HospitalContext>(options => options.UseSqlServer(cadenasql));

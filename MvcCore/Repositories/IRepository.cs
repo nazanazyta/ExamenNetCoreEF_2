@@ -13,5 +13,11 @@ namespace MvcCore.Repositories
         void Insert(String nombre, String username, String password);
 
         //List<String> NombresUsuario();
+
+        int GetMaxIdUsuario();
+
+        List<Departamento> GetDepartamentos();
+
+        Departamento BuscarDepartamentoId(int id);
     }
 }

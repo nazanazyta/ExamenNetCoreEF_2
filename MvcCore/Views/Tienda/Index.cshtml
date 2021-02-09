@@ -1,0 +1,54 @@
+﻿@model List<Departamento>
+
+@{
+    Usuario user = Context.Session.GetObject<Usuario>("usuario");
+    List<int> deptsession = Context.Session.GetObject<List<int>>("deptsession");
+}
+
+@if (user != null)
+{
+    <a asp-controller="Login" asp-action="CerrarSesion" class="btn btn-danger">Log Out</a>
+
+    <a asp-controller="Tienda" asp-action="Carrito" class="btn btn-info">Carrito</a>
+    <br />
+    @ViewData["mensaje"]
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Localidad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Departamento dept in Model)
+            {
+                <tr>
+                    <td>@dept.Nombre</td>
+                    <td>@dept.Localidad</td>
+                    <td>
+                        @if (deptsession == null)
+                        {
+                            <a asp-controller="Tienda"
+                               asp-action="Index" asp-route-id="@dept.Numero" class="btn btn-info">Guardar</a>
+                        }
+                        else if (!deptsession.Contains(dept.Numero))
+                        {
+                            <a asp-controller="Tienda"
+                               asp-action="Index" asp-route-id="@dept.Numero" class="btn btn-info">Guardar</a>
+                        }
+                        else
+                        {
+                            <a href="#" class="btn disabled">Guardado</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 style="color: red">Ups! Necesitas iniciar sesión</h1>
+}

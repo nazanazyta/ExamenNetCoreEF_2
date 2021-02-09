@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCore.Extensions;
 using MvcCore.Models;
 using MvcCore.Repositories;
 using System;
@@ -26,7 +27,13 @@ namespace MvcCore.Controllers
         public IActionResult Index(String username, String password)
         {
             Usuario user = this.repo.Login(username, password);
-            return View(user);
+            if (user != null)
+            {
+                HttpContext.Session.SetObject("usuario", user);
+                return RedirectToAction("Index", "Tienda");
+            }
+            ViewData["mensaje"] = "Error";
+            return View();
         }
 
         public IActionResult Registro()
@@ -35,10 +42,17 @@ namespace MvcCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registro(String nombre, String username, String pass)
+        public IActionResult Registro(String nombre, String username, String password)
         {
-            this.repo.Insert(nombre, username, pass);
+            this.repo.Insert(nombre, username, password);
+            ViewData["mensaje"] = "Datos almacenados";
             return View();
+        }
+
+        public IActionResult CerrarSesion()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

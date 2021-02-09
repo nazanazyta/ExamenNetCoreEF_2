@@ -1,0 +1,27 @@
+﻿@model List<Departamento>
+
+<h1>Carrito</h1>
+
+<a asp-controller="Tienda" asp-action="Index">Volver a guardar</a>
+
+@if (Model == null)
+{
+    <h1 style="color: red">No existen departamentos en el carrito</h1>
+}
+else
+{
+    <form method="post">
+        <ul class="list-group">
+            @foreach (Departamento dept in Model)
+            {
+                <li class="list-group-item">
+                    @dept.Nombre, @dept.Localidad
+                    <input type="number" value="1" class="form-control-sm" name="cantidades" />
+                    <a class="btn btn-danger" asp-controller="Tienda" asp-action="Carrito"
+                       asp-route-eliminar="@dept.Numero">Eliminar</a>
+                </li>
+            }
+        </ul>
+        <button type="submit" class="btn btn-success">Realizar pedido</button>
+    </form>
+}

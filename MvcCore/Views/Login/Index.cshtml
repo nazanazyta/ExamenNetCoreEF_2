@@ -1,0 +1,18 @@
+﻿@model Usuario
+
+<h1>Login</h1>
+
+<form method="post">
+    <label>Username: </label>
+    <input type="text" class="form-control" name="username" />
+    <label>Password: </label>
+    <input type="text" class="form-control" name="password" />
+    <button class="btn btn-success">Entrar</button>
+</form>
+
+<a asp-controller="Login" asp-action="Registro">Registro</a>
+
+@if (Model != null)
+{
+    <h2>@Model.UserName</h2>
+}
